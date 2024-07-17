@@ -193,7 +193,7 @@ type Table string
 const (
 
 	// l3Rt  evpn p4 table name
-	l3Rt = "linux_networking_control.l3_routing_table" // VRFs routing table in LPM
+	l3Rt = "evpn_gw_control.l3_routing_table" // VRFs routing table in LPM
 	//                            TableKeys (
 	//                                ipv4_table_lpm_root2,  // Exact
 	//                                vrf,                   // LPM
@@ -205,7 +205,7 @@ const (
 	//                            )
 
 	// l3RtHost  evpn p4 table name
-	l3RtHost = "linux_networking_control.l3_lem_table"
+	l3RtHost = "evpn_gw_control.l3_lem_table"
 	//                            TableKeys (
 	//                                vrf,                   // Exact
 	//                                direction,             // Exact
@@ -216,7 +216,7 @@ const (
 	//                            )
 
 	// l3P2PRt  evpn p4 table name
-	l3P2PRt = "linux_networking_control.l3_p2p_routing_table" // Special GRD routing table for VXLAN packets
+	l3P2PRt = "evpn_gw_control.l3_p2p_routing_table" // Special GRD routing table for VXLAN packets
 	//                            TableKeys (
 	//                                ipv4_table_lpm_root2,  # Exact
 	//                                dst_ip,                # LPM
@@ -226,7 +226,7 @@ const (
 	//
 
 	// l3P2PRtHost  evpn p4 table name
-	l3P2PRtHost = "linux_networking_control.l3_p2p_lem_table"
+	l3P2PRtHost = "evpn_gw_control.l3_p2p_lem_table"
 	// Special LEM table for VXLAN packets
 	//                            TableKeys (
 	//                                vrf,                   # Exact
@@ -238,7 +238,7 @@ const (
 	//                            )
 
 	// l3NH  evpn p4 table name
-	l3NH = "linux_networking_control.l3_nexthop_table" // VRFs next hop table
+	l3NH = "evpn_gw_control.l3_nexthop_table" // VRFs next hop table
 	//                            TableKeys (
 	//                                neighbor,              // Exact
 	//                                bit32_zeros,           // Exact
@@ -252,7 +252,7 @@ const (
 	//                            )
 
 	// p2pIn  evpn p4 table name
-	p2pIn = "linux_networking_control.ingress_p2p_table"
+	p2pIn = "evpn_gw_control.ingress_p2p_table"
 	//                           TableKeys (
 	//                               neighbor,              # Exact
 	//                               bit32_zeros,           # Exact
@@ -262,7 +262,7 @@ const (
 	//
 
 	// phyInIP  evpn p4 table name
-	phyInIP = "linux_networking_control.phy_ingress_ip_table" // PHY ingress table - IP traffic
+	phyInIP = "evpn_gw_control.phy_ingress_ip_table" // PHY ingress table - IP traffic
 	//                           TableKeys(
 	//                               port_id,                // Exact
 	//                               bit32_zeros,            // Exact
@@ -272,7 +272,7 @@ const (
 	//                           )
 
 	// phyInArp  evpn p4 table name
-	phyInArp = "linux_networking_control.phy_ingress_arp_table" // PHY ingress table - ARP traffic
+	phyInArp = "evpn_gw_control.phy_ingress_arp_table" // PHY ingress table - ARP traffic
 	//                           TableKeys(
 	//                               port_id,                // Exact
 	//                               bit32_zeros,            // Exact
@@ -282,7 +282,7 @@ const (
 	//                           )
 
 	// phyInVxlan  evpn p4 table name
-	phyInVxlan = "linux_networking_control.phy_ingress_vxlan_table" // PHY ingress table - VXLAN traffic
+	phyInVxlan = "evpn_gw_control.phy_ingress_vxlan_table" // PHY ingress table - VXLAN traffic
 	//                           TableKeys(
 	//                               dst_ip
 	//                               vni,
@@ -293,7 +293,7 @@ const (
 	//                           )
 
 	// phyInVxlanL2  evpn p4 table name
-	phyInVxlanL2 = "linux_networking_control.phy_ingress_vxlan_vlan_table"
+	phyInVxlanL2 = "evpn_gw_control.phy_ingress_vxlan_vlan_table"
 	//                           Keys {
 	//                               dst_ip                  // Exact
 	//                               vni                     // Exact
@@ -303,7 +303,7 @@ const (
 	//                           )
 
 	// podInArpAccess  evpn p4 table name
-	podInArpAccess = "linux_networking_control.vport_arp_ingress_table"
+	podInArpAccess = "evpn_gw_control.vport_arp_ingress_table"
 	//                       Keys {
 	//                           vsi,                        // Exact
 	//                           bit32_zeros                 // Exact
@@ -314,7 +314,7 @@ const (
 	//                       )
 
 	// podInArpTrunk  evpn p4 table name
-	podInArpTrunk = "linux_networking_control.tagged_vport_arp_ingress_table"
+	podInArpTrunk = "evpn_gw_control.tagged_vport_arp_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           vid                         // Exact
@@ -326,7 +326,7 @@ const (
 	//                       )
 
 	// podInIPAccess  evpn p4 table name
-	podInIPAccess = "linux_networking_control.vport_ingress_table"
+	podInIPAccess = "evpn_gw_control.vport_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           bit32_zeros                 // Exact
@@ -337,7 +337,7 @@ const (
 	//                       )
 
 	// podInIPTrunk  evpn p4 table name
-	podInIPTrunk = "linux_networking_control.tagged_vport_ingress_table"
+	podInIPTrunk = "evpn_gw_control.tagged_vport_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           vid                         // Exact
@@ -349,7 +349,7 @@ const (
 	//                       )
 
 	// portInSviAccess  evpn p4 table name
-	portInSviAccess = "linux_networking_control.vport_svi_ingress_table"
+	portInSviAccess = "evpn_gw_control.vport_svi_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           da                          // Exact
@@ -360,7 +360,7 @@ const (
 	//                       )
 
 	// portInSviTrunk  evpn p4 table name
-	portInSviTrunk = "linux_networking_control.tagged_vport_svi_ingress_table"
+	portInSviTrunk = "evpn_gw_control.tagged_vport_svi_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           vid,                        // Exact
@@ -371,7 +371,7 @@ const (
 	//                       )
 
 	// portMuxIn  evpn p4 table name
-	portMuxIn = "linux_networking_control.port_mux_ingress_table"
+	portMuxIn = "evpn_gw_control.port_mux_ingress_table"
 	//                       Key {
 	//                           vsi,                        // Exact
 	//                           vid                         // Exact
@@ -381,7 +381,7 @@ const (
 	//                           pop_ctag_stag_vlan(mod_ptr, vport),
 	//                           pop_stag_vlan(mod_ptr, vport)
 	//                       )
-	//    PORT_MUX_RX        = "linux_networking_control.port_mux_rx_table"
+	//    PORT_MUX_RX        = "evpn_gw_control.port_mux_rx_table"
 	//                       Key {
 	//                           vid,                        // Exact
 	//                           bit32_zeros                 // Exact
@@ -392,16 +392,16 @@ const (
 	//                       )
 
 	// portMuxFwd  evpn p4 table name
-	portMuxFwd = "linux_networking_control.port_mux_fwd_table"
+	portMuxFwd = "evpn_gw_control.port_mux_fwd_table"
 	//                       Key {
 	//                           bit32_zeros                 // Exact
 	//                       }
 	//                       Actions(
-	//                           "linux_networking_control.send_to_port_mux(vport)"
+	//                           "evpn_gw_control.send_to_port_mux(vport)"
 	//                       )
 
 	// l2FwdLoop  evpn p4 table name
-	l2FwdLoop = "linux_networking_control.l2_fwd_rx_table"
+	l2FwdLoop = "evpn_gw_control.l2_fwd_rx_table"
 	//                       Key {
 	//                           da                          // Exact (MAC)
 	//                       }
@@ -410,7 +410,7 @@ const (
 	//                       )
 
 	// l2Fwd  evpn p4 table name
-	l2Fwd = "linux_networking_control.l2_dmac_table"
+	l2Fwd = "evpn_gw_control.l2_dmac_table"
 	//                       Key {
 	//                           vlan_id,                    // Exact
 	//                           da,                         // Exact
@@ -421,7 +421,7 @@ const (
 	//                       )
 
 	// l2Nh  evpn p4 table name
-	l2Nh = "linux_networking_control.l2_nexthop_table"
+	l2Nh = "evpn_gw_control.l2_nexthop_table"
 	//                       Key {
 	//                           neighbor                    // Exact
 	//                           bit32_zeros                 // Exact
@@ -435,7 +435,7 @@ const (
 	//                       )
 
 	// tcamEntries  evpn p4 table name
-	tcamEntries = "linux_networking_control.ecmp_lpm_root_lut1"
+	tcamEntries = "evpn_gw_control.ecmp_lpm_root_lut1"
 
 	//                       Key {
 	//                           tcam_prefix,                 // Exact
@@ -446,7 +446,7 @@ const (
 	//                       )
 
 	// tcamEntries2  evpn p4 table name
-	tcamEntries2 = "linux_networking_control.ecmp_lpm_root_lut2"
+	tcamEntries2 = "evpn_gw_control.ecmp_lpm_root_lut2"
 	//                       Key {
 	//                           tcamPrefix,                 # Exact
 	//                           MATCH_PRIORITY,              # Exact
@@ -463,34 +463,34 @@ type ModTable string
 const (
 
 	// pushVlan evpn p4 table name
-	pushVlan = "linux_networking_control.vlan_push_mod_table"
+	pushVlan = "evpn_gw_control.vlan_push_mod_table"
 	//                        src_action="push_vlan"
 	//			  Actions(
 	// 				vlan_push(pcp, dei, vlan_id),
 	//                        )
 
 	// pushMacVlan evpn p4 table name
-	pushMacVlan = "linux_networking_control.mac_vlan_push_mod_table"
+	pushMacVlan = "evpn_gw_control.mac_vlan_push_mod_table"
 	//                       src_action=""
 	//                       Actions(
 	//                          update_smac_dmac_vlan(src_mac_addr, dst_mac_addr, pcp, dei, vlan_id)
 
 	// pushDmacVlan evpn p4 table name
-	pushDmacVlan = "linux_networking_control.dmac_vlan_push_mod_table"
+	pushDmacVlan = "evpn_gw_control.dmac_vlan_push_mod_table"
 	//                        src_action="push_dmac_vlan",
 	//                       Actions(
 	//                           dmac_vlan_push(pcp, dei, vlan_id, dst_mac_addr),
 	//                        )
 
 	// macMod evpn p4 table name
-	macMod = "linux_networking_control.mac_mod_table"
+	macMod = "evpn_gw_control.mac_mod_table"
 	//                       src_action="push_mac"
 	//                        Actions(
 	//                            update_smac_dmac(src_mac_addr, dst_mac_addr),
 	//                        )
 
 	// pushVxlanHdr evpn p4 table name
-	pushVxlanHdr = "linux_networking_control.omac_vxlan_imac_push_mod_table"
+	pushVxlanHdr = "evpn_gw_control.omac_vxlan_imac_push_mod_table"
 	//                       src_action="push_outermac_vxlan_innermac"
 	//                       Actions(
 	//                           omac_vxlan_imac_push(outer_smac_addr,
@@ -504,42 +504,42 @@ const (
 	//                       )
 
 	// podOutAccess evpn p4 table name
-	podOutAccess = "linux_networking_control.vlan_encap_ctag_stag_mod_table"
+	podOutAccess = "evpn_gw_control.vlan_encap_ctag_stag_mod_table"
 	//                       src_actions="send_to_port_mux_access"
 	//                       Actions(
 	//                           vlan_push_access(pcp, dei, ctag_id, pcp_s, dei_s, stag_id, dst_mac)
 	//                       )
 
 	// podOutTrunk evpn p4 table name
-	podOutTrunk = "linux_networking_control.vlan_encap_stag_mod_table"
+	podOutTrunk = "evpn_gw_control.vlan_encap_stag_mod_table"
 	//                       src_actions="send_to_port_mux_trunk"
 	//                       Actions(
 	//                           vlan_push_trunk(pcp, dei, stag_id, dst_mac)
 	//                       )
 
 	// popCtagStag evpn p4 table name
-	popCtagStag = "linux_networking_control.vlan_ctag_stag_pop_mod_table"
+	popCtagStag = "evpn_gw_control.vlan_ctag_stag_pop_mod_table"
 	//                       src_actions=""
 	//                       Actions(
 	//                           vlan_ctag_stag_pop()
 	//                       )
 
 	// popStag evpn p4 table name
-	popStag = "linux_networking_control.vlan_stag_pop_mod_table"
+	popStag = "evpn_gw_control.vlan_stag_pop_mod_table"
 	//                       src_actions=""
 	//                       Actions(
 	//                           vlan_stag_pop()
 	//                       )
 
 	// pushQnQFlood evpn p4 table name
-	pushQnQFlood = "linux_networking_control.vlan_encap_ctag_stag_flood_mod_table"
+	pushQnQFlood = "evpn_gw_control.vlan_encap_ctag_stag_flood_mod_table"
 	//                       src_action="l2_nexthop_table.push_stag_ctag()"
 	//                       Action(
 	//                           vlan_push_stag_ctag_flood()
 	//                       )
 
 	// pushVxlanOutHdr evpn p4 table name
-	pushVxlanOutHdr = "linux_networking_control.omac_vxlan_push_mod_table"
+	pushVxlanOutHdr = "evpn_gw_control.omac_vxlan_push_mod_table"
 
 //                      src_action="l2_nexthop_table.push_outermac_vxlan()"
 //			Action(
@@ -637,7 +637,7 @@ func _addTcamEntry(vrfID uint32, direction int) (p4client.TableEntry, uint32) {
 				Priority: int32(tidx),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.ecmp_lpm_root_lut1_action",
+				ActionName: "evpn_gw_control.ecmp_lpm_root_lut1_action",
 				Params:     []interface{}{tidx},
 			},
 		}
@@ -869,7 +869,7 @@ func (l L3Decoder) _l3HostRoute(route netlink_polling.RouteStruct, delete string
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_neighbor",
+					ActionName: "evpn_gw_control.set_neighbor",
 					Params:     []interface{}{uint16(_p4NexthopID(*route.Nexthops[0], dir))},
 				},
 			})
@@ -900,7 +900,7 @@ func (l L3Decoder) _l3HostRoute(route netlink_polling.RouteStruct, delete string
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_p2p_neighbor",
+					ActionName: "evpn_gw_control.set_p2p_neighbor",
 					Params:     []interface{}{uint16(_p4NexthopID(*route.Nexthops[0], Direction.Rx))},
 				},
 			})
@@ -947,7 +947,7 @@ func (l L3Decoder) _l3Route(route netlink_polling.RouteStruct, delete string) []
 					Priority: int32(1),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_neighbor",
+					ActionName: "evpn_gw_control.set_neighbor",
 					Params:     []interface{}{uint16(_p4NexthopID(*route.Nexthops[0], Direction.Rx))},
 				},
 			})
@@ -977,7 +977,7 @@ func (l L3Decoder) _l3Route(route netlink_polling.RouteStruct, delete string) []
 					Priority: int32(1),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_p2p_neighbor",
+					ActionName: "evpn_gw_control.set_p2p_neighbor",
 					Params:     []interface{}{uint16(_p4NexthopID(*route.Nexthops[0], Direction.Rx))},
 				},
 			})
@@ -1042,7 +1042,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.update_smac_dmac",
+				ActionName: "evpn_gw_control.update_smac_dmac",
 				Params:     []interface{}{smac, dmac},
 			},
 		},
@@ -1056,7 +1056,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.push_mac",
+					ActionName: "evpn_gw_control.push_mac",
 					Params:     []interface{}{modPtr, uint16(portID.(int))},
 				},
 			},
@@ -1070,7 +1070,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.send_p2p_push_mac",
+					ActionName: "evpn_gw_control.send_p2p_push_mac",
 					Params:     []interface{}{modPtr, uint16(portID.(int)), uint16(_p2pQid(portID.(int)))},
 				},
 			},
@@ -1084,7 +1084,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.fwd_to_port",
+					ActionName: "evpn_gw_control.fwd_to_port",
 					Params:     []interface{}{uint16(portID.(int))},
 				},
 			})
@@ -1102,7 +1102,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.dmac_vlan_push",
+				ActionName: "evpn_gw_control.dmac_vlan_push",
 				Params:     []interface{}{uint16(0), uint16(1), uint16(vlanID), dmac},
 			},
 		},
@@ -1116,7 +1116,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.push_dmac_vlan",
+					ActionName: "evpn_gw_control.push_dmac_vlan",
 					Params:     []interface{}{modPtr, uint32(vport)},
 				},
 			})
@@ -1143,7 +1143,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.update_smac_dmac_vlan",
+					ActionName: "evpn_gw_control.update_smac_dmac_vlan",
 					Params:     []interface{}{smac, dmac, 0, 1, uint16(vlanID)},
 				},
 			},
@@ -1157,7 +1157,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.push_mac_vlan",
+						ActionName: "evpn_gw_control.push_mac_vlan",
 						Params:     []interface{}{modPtr, uint32(vport)},
 					},
 				})
@@ -1172,7 +1172,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.update_smac_dmac",
+					ActionName: "evpn_gw_control.update_smac_dmac",
 					Params:     []interface{}{smac, dmac},
 				},
 			},
@@ -1186,7 +1186,7 @@ func (l L3Decoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruct) 
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.push_mac",
+						ActionName: "evpn_gw_control.push_mac",
 						Params:     []interface{}{modPtr, uint32(vport)},
 					},
 				})
@@ -1359,7 +1359,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.pop_vlan_set_vrfid",
+			ActionName: "evpn_gw_control.pop_vlan_set_vrfid",
 			Params:     []interface{}{ModPointer.ignorePtr, uint32(0), tcamPrefix, uint32(0)},
 		},
 	},
@@ -1381,7 +1381,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.fwd_to_port",
+				ActionName: "evpn_gw_control.fwd_to_port",
 				Params:     []interface{}{uint32(_toEgressVsi(int(peerVsi)))},
 			},
 		},
@@ -1394,7 +1394,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.l2_fwd",
+					ActionName: "evpn_gw_control.l2_fwd",
 					Params:     []interface{}{uint32(_toEgressVsi(port.vsi))},
 				},
 			})
@@ -1410,7 +1410,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.set_vrf_id",
+				ActionName: "evpn_gw_control.set_vrf_id",
 				Params:     []interface{}{tcamPrefix, uint32(_toEgressVsi(l._defaultVsi)), uint32(0)},
 			},
 		},
@@ -1424,7 +1424,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.fwd_to_port",
+					ActionName: "evpn_gw_control.fwd_to_port",
 					Params:     []interface{}{uint32(_toEgressVsi(port.vsi))},
 				},
 			},
@@ -1438,7 +1438,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.fwd_to_port",
+					ActionName: "evpn_gw_control.fwd_to_port",
 					Params:     []interface{}{uint32(port.id)},
 				},
 			},
@@ -1452,7 +1452,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.fwd_to_port",
+					ActionName: "evpn_gw_control.fwd_to_port",
 					Params:     []interface{}{uint32(port.id)},
 				},
 			})
@@ -1468,7 +1468,7 @@ func (l L3Decoder) StaticAdditions() []interface{} {
 			Priority: int32(tidx),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.ecmp_lpm_root_lut2_action",
+			ActionName: "evpn_gw_control.ecmp_lpm_root_lut2_action",
 			Params:     []interface{}{tidx},
 		},
 	})
@@ -1638,7 +1638,7 @@ func (v VxlanDecoder) translateAddedVrf(vrf *infradb.Vrf) []interface{} {
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.pop_vxlan_set_vrf_id",
+			ActionName: "evpn_gw_control.pop_vxlan_set_vrf_id",
 			Params:     []interface{}{ModPointer.ignorePtr, uint32(tcamPrefix), uint32(_toEgressVsi(v._defaultVsi)), *vrf.Metadata.RoutingTable[0]},
 		},
 	})
@@ -1706,7 +1706,7 @@ func (v VxlanDecoder) translateAddedLb(lb *infradb.LogicalBridge) []interface{} 
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.pop_vxlan_set_vlan_id",
+			ActionName: "evpn_gw_control.pop_vxlan_set_vlan_id",
 			Params:     []interface{}{ModPointer.ignorePtr, uint16(lb.Spec.VlanID), uint32(_toEgressVsi(v._defaultVsi))},
 		},
 	})
@@ -1761,7 +1761,7 @@ func (v VxlanDecoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruc
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.omac_vxlan_imac_push",
+			ActionName: "evpn_gw_control.omac_vxlan_imac_push",
 			Params:     []interface{}{smac, dmac, net.ParseIP(srcAddr.(string)), net.ParseIP(dstAddr.(string)), v.vxlanUDPPort, vni.(uint32), innerSmacAddr, innerDmacAddr},
 		},
 	},
@@ -1775,7 +1775,7 @@ func (v VxlanDecoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruc
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.push_outermac_vxlan_innermac",
+				ActionName: "evpn_gw_control.push_outermac_vxlan_innermac",
 				Params:     []interface{}{modPtr, uint32(vport)},
 			},
 		},
@@ -1789,7 +1789,7 @@ func (v VxlanDecoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruc
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.send_p2p_push_outermac_vxlan_innermac",
+				ActionName: "evpn_gw_control.send_p2p_push_outermac_vxlan_innermac",
 				Params:     []interface{}{modPtr, uint32(vport), uint16(_p2pQid(vport))},
 			},
 		},
@@ -1803,7 +1803,7 @@ func (v VxlanDecoder) translateAddedNexthop(nexthop netlink_polling.NexthopStruc
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.send_p2p",
+				ActionName: "evpn_gw_control.send_p2p",
 				Params:     []interface{}{uint32(vport)},
 			},
 		})
@@ -1899,7 +1899,7 @@ func (v VxlanDecoder) translateAddedL2Nexthop(nexthop netlink_polling.L2NexthopS
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.omac_vxlan_push",
+			ActionName: "evpn_gw_control.omac_vxlan_push",
 			Params:     []interface{}{srcMac, dstMac, net.ParseIP(srcIP.(string)), net.ParseIP(dstIP.(string)), v.vxlanUDPPort, vni.(uint32)},
 		},
 	},
@@ -1913,7 +1913,7 @@ func (v VxlanDecoder) translateAddedL2Nexthop(nexthop netlink_polling.L2NexthopS
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.push_outermac_vxlan",
+				ActionName: "evpn_gw_control.push_outermac_vxlan",
 				Params:     []interface{}{modPtr, vsiOut},
 			},
 		})
@@ -1985,7 +1985,7 @@ func (v VxlanDecoder) translateAddedFdb(fdb netlink_polling.FdbEntryStruct) []in
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.set_neighbor",
+				ActionName: "evpn_gw_control.set_neighbor",
 				Params:     []interface{}{uint16(fdb.Metadata["nh_id"].(int))},
 			},
 		})
@@ -2090,7 +2090,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.pop_stag_vlan",
+				ActionName: "evpn_gw_control.pop_stag_vlan",
 				Params:     []interface{}{modPtrD, uint32(vsiOut)},
 			},
 		},
@@ -2104,7 +2104,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.vlan_stag_pop",
+					ActionName: "evpn_gw_control.vlan_stag_pop",
 					Params:     []interface{}{mac},
 				},
 			},
@@ -2117,7 +2117,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.l2_fwd",
+					ActionName: "evpn_gw_control.l2_fwd",
 					Params:     []interface{}{uint32(vsiOut)},
 				},
 			},
@@ -2130,7 +2130,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.vlan_push_trunk",
+					ActionName: "evpn_gw_control.vlan_push_trunk",
 					Params:     []interface{}{uint16(0), uint16(0), uint32(vsi)},
 				},
 			})
@@ -2157,7 +2157,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.send_to_port_mux_trunk",
+					ActionName: "evpn_gw_control.send_to_port_mux_trunk",
 					Params:     []interface{}{modPtr, uint32(portMuxVsiOut)},
 				},
 			},
@@ -2172,7 +2172,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.set_vlan_and_pop_vlan",
+						ActionName: "evpn_gw_control.set_vlan_and_pop_vlan",
 						Params:     []interface{}{ignorePtr, vid, uint32(0)},
 					},
 				})
@@ -2206,7 +2206,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.pop_vlan_set_vrf_id",
+						ActionName: "evpn_gw_control.pop_vlan_set_vrf_id",
 						Params:     []interface{}{ignorePtr, uint32(tcamPrefix), uint32(0), uint16(*VrfObj.Metadata.RoutingTable[0])},
 					},
 				})
@@ -2238,7 +2238,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.pop_ctag_stag_vlan",
+				ActionName: "evpn_gw_control.pop_ctag_stag_vlan",
 				Params:     []interface{}{modPtrD, uint32(vsiOut)},
 			},
 		},
@@ -2251,7 +2251,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.vlan_ctag_stag_pop",
+					ActionName: "evpn_gw_control.vlan_ctag_stag_pop",
 					Params:     []interface{}{dstMacAddr},
 				},
 			},
@@ -2265,7 +2265,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.l2_fwd",
+					ActionName: "evpn_gw_control.l2_fwd",
 					Params:     []interface{}{uint32(vsiOut)},
 				},
 			},
@@ -2279,7 +2279,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.vlan_push_access",
+					ActionName: "evpn_gw_control.vlan_push_access",
 					Params:     []interface{}{uint16(0), uint16(0), vid, uint16(0), uint16(0), uint16(vsi)},
 				},
 			},
@@ -2293,7 +2293,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.send_to_port_mux_access",
+					ActionName: "evpn_gw_control.send_to_port_mux_access",
 					Params:     []interface{}{modPtr, uint32(portMuxVsiOut)},
 				},
 			},
@@ -2308,7 +2308,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_vlan",
+					ActionName: "evpn_gw_control.set_vlan",
 					Params:     []interface{}{vid, uint32(0)},
 				},
 			})
@@ -2339,7 +2339,7 @@ func (p PodDecoder) translateAddedBp(bp *infradb.BridgePort) ([]interface{}, err
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.set_vrf_id_tx",
+					ActionName: "evpn_gw_control.set_vrf_id_tx",
 					Params:     []interface{}{uint32(tcamPrefix), uint32(0), uint16(*VrfObj.Metadata.RoutingTable[0])},
 				},
 			})
@@ -2607,7 +2607,7 @@ func (p PodDecoder) translateAddedSvi(svi *infradb.Svi) ([]interface{}, error) {
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.set_vrf_id_tx",
+						ActionName: "evpn_gw_control.set_vrf_id_tx",
 						Params:     []interface{}{uint32(tcamPrefix), uint32(0), uint16(*VrfObj.Metadata.RoutingTable[0])},
 					},
 				})
@@ -2623,7 +2623,7 @@ func (p PodDecoder) translateAddedSvi(svi *infradb.Svi) ([]interface{}, error) {
 						Priority: int32(0),
 					},
 					Action: p4client.Action{
-						ActionName: "linux_networking_control.pop_vlan_set_vrf_id",
+						ActionName: "evpn_gw_control.pop_vlan_set_vrf_id",
 						Params:     []interface{}{ignorePtr, uint32(tcamPrefix), uint32(0), uint16(*VrfObj.Spec.Vni)},
 					},
 				})
@@ -2704,7 +2704,7 @@ func (p PodDecoder) translateAddedFdb(fdb netlink_polling.FdbEntryStruct) []inte
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.set_neighbor",
+				ActionName: "evpn_gw_control.set_neighbor",
 				Params:     []interface{}{uint16(fdb.Metadata["nh_id"].(int))},
 			},
 		})
@@ -2765,7 +2765,7 @@ func (p PodDecoder) translateAddedL2Nexthop(nexthop netlink_polling.L2NexthopStr
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.fwd_to_port",
+				ActionName: "evpn_gw_control.fwd_to_port",
 				Params:     []interface{}{uint32(_toEgressVsi(portID))},
 			},
 		})
@@ -2783,7 +2783,7 @@ func (p PodDecoder) translateAddedL2Nexthop(nexthop netlink_polling.L2NexthopStr
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.vlan_push",
+				ActionName: "evpn_gw_control.vlan_push",
 				Params:     []interface{}{uint16(0), uint16(0), uint16(nexthop.VlanID)},
 			},
 		},
@@ -2797,7 +2797,7 @@ func (p PodDecoder) translateAddedL2Nexthop(nexthop netlink_polling.L2NexthopStr
 					Priority: int32(0),
 				},
 				Action: p4client.Action{
-					ActionName: "linux_networking_control.push_vlan",
+					ActionName: "evpn_gw_control.push_vlan",
 					Params:     []interface{}{modPtr, uint32(_toEgressVsi(portID))},
 				},
 			})
@@ -2882,7 +2882,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 			Priority: int32(0),
 		},
 		Action: p4client.Action{
-			ActionName: "linux_networking_control.send_to_port_mux",
+			ActionName: "evpn_gw_control.send_to_port_mux",
 			Params:     []interface{}{uint32(_toEgressVsi(p._portMuxVsi))},
 		},
 	},
@@ -2896,7 +2896,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.set_def_vsi_loopback",
+				ActionName: "evpn_gw_control.set_def_vsi_loopback",
 				Params:      []interface{}{uint32(0)},
 			},
 		},*/
@@ -2909,7 +2909,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.l2_fwd",
+				ActionName: "evpn_gw_control.l2_fwd",
 				Params:     []interface{}{uint32(_toEgressVsi(p._portMuxVsi))},
 			},
 		},
@@ -2922,7 +2922,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.l2_fwd",
+				ActionName: "evpn_gw_control.l2_fwd",
 				Params:     []interface{}{uint32(_toEgressVsi(p._vrfMuxVsi))},
 			},
 		},
@@ -2936,7 +2936,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.vlan_push_stag_ctag_flood",
+				ActionName: "evpn_gw_control.vlan_push_stag_ctag_flood",
 				Params:     []interface{}{uint32(0)},
 			},
 		},
@@ -2950,7 +2950,7 @@ func (p PodDecoder) StaticAdditions() []interface{} {
 				Priority: int32(0),
 			},
 			Action: p4client.Action{
-				ActionName: "linux_networking_control.push_stag_ctag",
+				ActionName: "evpn_gw_control.push_stag_ctag",
 				Params:     []interface{}{p.floodModPtr, uint32(_toEgressVsi(p._vrfMuxVsi))},
 			},
 		})
